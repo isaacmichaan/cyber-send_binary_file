@@ -9,14 +9,14 @@ ping = Ether()/IP(dst="10.0.2.4")/ICMP()/Raw()
 f = open("nc", "rb")
 size = (100 - len(ping)) # ping packet can be of a maximum of 100
 
-def loop1_10():
+def loop1_30():
 	for i in range (30):
 		ping['Raw'].load = f.read(size)
 		srp1(ping, timeout = 1)
 
 # read and send to Ubuntu VM
 while f:
-	threading.Thread(target = loop1_10).start()
+	threading.Thread(target = loop1_30).start()
 #	ping['Raw'].load = f.read(size)
 #	srp1(ping, timeout = 1)
 f.close()
